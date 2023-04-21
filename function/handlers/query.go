@@ -21,7 +21,7 @@ type VoteQueryModel struct {
 
 // GetVotesByPostIdHandle handle query on vote
 func GetVotesByPostIdHandle(c *fiber.Ctx) error {
-
+	fmt.Println("inside get votes by post id handle")
 	// Create service
 	voteService, serviceErr := service.NewVoteService(database.Db)
 	if serviceErr != nil {
@@ -53,7 +53,7 @@ func GetVotesByPostIdHandle(c *fiber.Ctx) error {
 
 // GetVoteHandle handle get a vote
 func GetVoteHandle(c *fiber.Ctx) error {
-
+	fmt.Println("inside get vote handle")
 	// Create service
 	voteService, serviceErr := service.NewVoteService(database.Db)
 	if serviceErr != nil {

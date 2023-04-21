@@ -1,0 +1,9 @@
+.env
+.exe
+GO_REPLACE.txt
+key.pub
+mongo-database
+mongo-host
+payload-secret
+go.mod
+go.sum

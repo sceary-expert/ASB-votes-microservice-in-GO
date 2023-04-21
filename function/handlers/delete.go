@@ -16,7 +16,7 @@ import (
 
 // DeleteVoteHandle handle delete a Vote
 func DeleteVoteHandle(c *fiber.Ctx) error {
-
+	fmt.Println("inside delete vote handle")
 	// params from /votes/id/:voteId
 	voteId := c.Params("voteId")
 	if voteId == "" {
@@ -60,7 +60,7 @@ func DeleteVoteHandle(c *fiber.Ctx) error {
 
 // DeleteVoteByPostIdHandle handle delete a Vote but postId
 func DeleteVoteByPostIdHandle(c *fiber.Ctx) error {
-
+	fmt.Println("inside delete vote by post id handle")
 	// params from /Votes/post/:postId
 	postId := c.Params("postId")
 	if postId == "" {

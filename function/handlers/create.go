@@ -26,7 +26,7 @@ type PostModelNotification struct {
 
 // CreateVoteHandle handle create a new vote
 func CreateVoteHandle(c *fiber.Ctx) error {
-
+	fmt.Println("inside create vote handle")
 	// Create the model object
 	model := new(models.CreateVoteModel)
 	if err := c.BodyParser(model); err != nil {

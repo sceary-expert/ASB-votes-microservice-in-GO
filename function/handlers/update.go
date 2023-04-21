@@ -16,7 +16,7 @@ import (
 
 // UpdateVoteHandle handle create a new vote
 func UpdateVoteHandle(c *fiber.Ctx) error {
-
+	fmt.Println("inside update vote handle")
 	// Create the model object
 	var model models.VoteModel
 	if err := c.BodyParser(model); err != nil {

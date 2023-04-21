@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"example.com/core/config"
 	"example.com/core/pkg/log"
 	"example.com/core/types"
 	"example.com/core/utils"
@@ -74,13 +75,13 @@ func functionCall(method string, bytesReq []byte, url string, header map[string]
 	prettyURL := utils.GetPrettyURLf(url)
 	bodyReader := bytes.NewBuffer(bytesReq)
 
-	fullURL := *coreConfig.AppConfig.InternalGateway + prettyURL
+	fullURL := *config.AppConfig.InternalGateway + prettyURL
 	httpReq, httpErr := http.NewRequest(method, fullURL, bodyReader)
 	if httpErr != nil {
 		return nil, httpErr
 	}
 
-	digest := hmac.Sign(bytesReq, []byte(*coreConfig.AppConfig.PayloadSecret))
+	digest := hmac.Sign(bytesReq, []byte(*config.AppConfig.PayloadSecret))
 	httpReq.Header.Set("Content-type", "application/json")
 	log.Info("\ndigest: %s, header: %v \n", "sha1="+hex.EncodeToString(digest), types.HeaderHMACAuthenticate)
 	httpReq.Header.Add(types.HeaderHMACAuthenticate, "sha1="+hex.EncodeToString(digest))
